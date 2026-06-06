@@ -1,0 +1,55 @@
+{
+    "name": "api",
+    "version": "1.0.0",
+    "description": "",
+    "license": "ISC",
+    "author": "",
+    "type": "commonjs",
+    "main": "index.js",
+    "scripts": {
+        "build": "tsc",
+        "start": "node build/index.js",
+        "build:watch": "npm run clean && tsc -w",
+        "start:watch": "nodemon --enable-source-maps --watch build build/index.js",
+        "migration:generate": "cd ./src/migrations && typeorm-ts-node-commonjs migration:generate -d ../migration-entry.ts",
+        "migration:show": "typeorm-ts-node-commonjs migration:show -d ./src/migration-entry.ts",
+        "migration:upgrade": "typeorm-ts-node-commonjs migration:run -d ./src/migration-entry.ts",
+        "migration:downgrade": "typeorm-ts-node-commonjs migration:revert -d ./src/migration-entry.ts",
+        "test": "jest",
+        "lint": "eslint --ext .ts src/",
+        "lint:fix": "eslint --ext .ts src/ --fix",
+        "clean": "rimraf build"
+    },
+    "devDependencies": {
+        "@types/cors": "^2.8.19",
+        "@types/express": "^5.0.6",
+        "@types/express-session": "^1.19.0",
+        "@types/morgan": "^1.9.10",
+        "@types/node": "^25.5.2",
+        "@typescript-eslint/eslint-plugin": "^8.58.1",
+        "@typescript-eslint/parser": "^8.58.1",
+        "eslint": "^10.2.0",
+        "eslint-config-prettier": "^10.1.8",
+        "module-alias": "^2.3.4",
+        "nodemon": "^3.1.14",
+        "prettier": "^3.8.1",
+        "ts-node": "^10.9.2",
+        "typescript": "^6.0.2"
+    },
+    "dependencies": {
+        "connect-redis": "^9.0.0",
+        "cors": "^2.8.6",
+        "dotenv": "^17.4.1",
+        "express": "^5.2.1",
+        "express-session": "^1.19.0",
+        "joi": "^18.1.2",
+        "morgan": "^1.10.1",
+        "pg": "^8.21.0",
+        "redis": "^5.11.0",
+        "typeorm": "^0.3.28",
+        "zod": "^4.4.3"
+    },
+    "_moduleAliases": {
+        "~": "./build"
+    }
+}

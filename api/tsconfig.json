@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "strictNullChecks": true,
+        "experimentalDecorators": true,
+        "outDir": "build",
+        "rootDir": "./src",
+        "paths": {
+            "~/*": ["./src/*"]
+        },
+        "types": ["node"],
+        "lib": ["ES6", "DOM", "ESNext.String"]
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "build"]
+}
